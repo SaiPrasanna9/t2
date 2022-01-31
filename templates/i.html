@@ -1,0 +1,74 @@
+<html>
+<head>
+<style>
+form
+{
+border:2px solid black;
+width:30%;
+}
+</style>
+<script>
+function starting()
+{
+function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    //return xmlHttp.responseText;
+}
+httpGet('http://127.0.0.1:5882/record/');
+}
+
+function makeGetRequestone(path) {
+    axios.get(path).then(
+        (response) => {
+            var result = response.data;
+            console.log('Processing Request');
+            return (result);
+        },
+        (error) => {
+            console.log(error);
+        }
+    );
+}
+function mainone() {
+    var response = makeGetRequestone('http://localhost:5882/record/');
+    console.log(response);
+    console.log('Statement 1');
+}
+
+
+function makeGetRequesttwo(path) {
+    axios.get(path).then(
+        (response) => {
+            var result = response.data;
+            console.log('Processing Request');
+            return (result);
+        },
+        (error) => {
+            console.log(error);
+        }
+    );
+}
+function maintwo() {
+    var response = makeGetRequestone('http://localhost:5882/shutdown/');
+    console.log(response);
+    console.log('Statement 2');
+}
+
+</script>
+</head>
+<body bgcolor='lavendar'>
+<center>
+<br><br><br><br><br><br>
+<form name="f1">
+<h1>
+<center>
+<input type="button" value="record" onclick="mainone()"/></br></br>
+<input type="button" value="stop" onclick="maintwo()"/></h1>
+</center>
+</form>
+</center>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<html>
+<head>
+<script>
+function starting()
+{
+function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    //return xmlHttp.responseText;
+}
+httpGet('http://127.0.0.1:5882/record/');
+}
+
+function makeGetRequestone(path) {
+    axios.get(path).then(
+        (response) => {
+            var result = response.data;
+            console.log('Processing Request');
+            return (result);
+        },
+        (error) => {
+            console.log(error);
+        }
+    );
+}
+function mainone() {
+    var response = makeGetRequestone('http://localhost:5882/record/');
+    console.log(response);
+    console.log('Statement 1');
+}
+
+
+function makeGetRequesttwo(path) {
+    axios.get(path).then(
+        (response) => {
+            var result = response.data;
+            console.log('Processing Request');
+            return (result);
+        },
+        (error) => {
+            console.log(error);
+        }
+    );
+}
+function maintwo() {
+    var response = makeGetRequestone('http://localhost:5882/shutdown/');
+    console.log(response);
+    console.log('Statement 2');
+}
+
+</script>
+</head>
+<body>
+<center>
+<form name="f1">
+<h1>
+<input type="button" value="record" onclick="mainone()"/></br></br>
+<input type="button" value="stop" onclick="maintwo()"/></h1>
+</center>
+</form>
+</center>
+</body>
+</html>

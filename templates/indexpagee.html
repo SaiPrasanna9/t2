@@ -1,0 +1,33 @@
+<html>
+<head>
+<script>
+function makeAjaxCall(){
+        var request = new XMLHttpRequest();
+        request.open('GET', 'http://127.0.0.1:5882/record/');
+
+        request.send(null);
+
+
+    }
+function makeAjaxCallSec(){
+        var request = new XMLHttpRequest();
+        request.open('GET', 'http://127.0.0.1:5882/shutdown/');
+
+        
+        request.send(null);
+
+
+    }
+</script>
+</head>
+<body>
+<form name="f1">
+<center>
+<h1>
+<br><br>
+<input type="button" value="record" onclick="makeAjaxCall()"/></br></br>
+<input type="button" value="stop" onclick="makeAjaxCallSec()"/></h1>
+</center>
+</form>
+</body>
+</html>

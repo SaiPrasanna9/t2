@@ -1,0 +1,42 @@
+<html>
+<head>
+<style>
+form
+{
+border:2px solid black;
+width:30%;
+}
+</style>
+<script>
+function makeAjaxCall(){
+        var request = new XMLHttpRequest();
+        request.open('GET', 'http://127.0.0.1:5882/record/');
+
+        request.send(null);
+
+
+    }
+function makeAjaxCallSec(){
+        var request = new XMLHttpRequest();
+        request.open('GET', 'http://127.0.0.1:5882/shutdown/');
+
+        
+        request.send(null);
+
+
+    }
+</script>
+</head>
+<body bgcolor='lavendar'>
+<center>
+<br><br><br><br><br><br><br><br><br><br><br>
+<form name="f1">
+<center>
+<h1>
+<input type="button" value="record" onclick="makeAjaxCall()"/></br></br>
+<input type="button" value="stop" onclick="makeAjaxCallSec()"/></h1>
+</center>
+</form>
+</center>
+</body>
+</html>
